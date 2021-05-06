@@ -6,9 +6,21 @@ $loggedUser = $_SESSION["user"] ?? "";
 if (empty($loggedUser))
    header("Location: login.php");
 
+    //Inicialitzacio de variables
+    $isPost;
+    $isValid;
 
-// TODO: 1. Inicialitzar variables
-// TODO: 2. Comprovar el mètode de sol·licitud
+    // TODO: 2. Comprovar el mètode de sol·licitud
+    //Comprovacio de que s'ha solicitat el metode POST
+    if ($_SERVER["REQUEST_METHOD"]==="POST"){
+        
+        $isPost = true;
+
+        
+
+    } else {
+        $isPost = false;
+    }
     
    // TODO: 2.2. Processar el formulari
     // TODO: 2.2. Obtenir les dades del formulari
@@ -24,6 +36,23 @@ if (empty($loggedUser))
 </head>
 <body>
 <h1>Welcome to Coffee Talk Blog</h1>
+
+<form action="formulari">
+    <p>Codi del article <input type="text" name="codart"></p>
+    <p>Titol de l'article <input type="text" name="nomart"></p>
+    <p>Cos de l'article <input type="text" name="bodyart"></p>
+    <p>Autor de l'article <input type="text" name="autart"></p>
+    <p>Data de creacio <input type="text" name="datart"></p>
+    <p>Codi de la categoria <input type="text" name="datart"></p>
+    <p>Codi de l'usuari <input type="text" name="codusu"></p>
+    <p><input type="submit" value="Enviar"></p>
+</form>
+
+<?php
+
+    
+    
+?>
 
 <!--TODO: 2.1. Mostrar formulari //-->
 <!--TODO: 2.3.1. Mostrar errors de validació //-->

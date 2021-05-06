@@ -23,7 +23,7 @@ $stmt->execute();
 $article = $stmt->fetch();
 
 //Comprovacio per veure que s'ha recorregut l'array i per veure els valors que aquesta conte
-var_dump($article);
+//var_dump($article);
 
 ?>
 

@@ -1,10 +1,10 @@
 <?php
-// activem la gestió de sessions
+// Activem la gestió de sessions
 session_start();
 $error = "";
 $fullname = "";
 
-//el comandament per executar es docker-compose up
+// El comandament per executar es docker-compose up
 // Si el formulari s'ha enviat el gestionem
 if ($_SERVER["REQUEST_METHOD"]==="POST") {
     // indiquem que s'ha enviat un formulari
@@ -19,6 +19,7 @@ if ($_SERVER["REQUEST_METHOD"]==="POST") {
     // TODO: Implementar la consulta
     $stmt = $pdo -> prepare("SELECT * FROM usuari WHERE userusu=:username");
     
+    //Se li dona el valor a la variable $stmt
     $stmt -> bindValue("username", $user);
     
     $stmt -> execute();
