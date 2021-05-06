@@ -26,17 +26,10 @@ $rows = $stmt->fetchAll();
     <?php if (empty($loggedUser)) :?>
     <p>Please <a href="login.php">login</a>.</p>
     <?php else :?>
-        <ul>
-            <li>
-                <a href="">Post 1</a> by User 1 from the Category 1
-            </li>
-            <li>
-                <a href="">Post 2</a> by User 2 from the Category 1
-            </li>
-            
+        <ul>            
             <!--Bucle foreach per mostrar els articles-->
             <?php foreach ($rows as $row) : ?>
-                <li><a href="post-show.php<?=$row["codart"]?>"><?=$row["titart"]?></a></li>
+                <li><a href="posts_show.php?id=<?=$row["codart"]?>"><?=$row["titart"]?></a></li>
             <?php endforeach; ?>
         </ul>
         <p>Clic to <a href="posts_add.php">add</a> a posting.</p>
