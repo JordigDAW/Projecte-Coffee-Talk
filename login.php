@@ -12,14 +12,14 @@ if ($_SERVER["REQUEST_METHOD"]==="POST") {
     // obtinc usuari i contrasenya
     $user = filter_input(INPUT_POST, "username");
     $password = filter_input(INPUT_POST, "password");
-    // TODO: Implementar la connexió a la base de dades
+    // implementacio de la connexio a la base de dades
     $pdo = new PDO("mysql:host=mysql-server;dbname=coffee-talks;charset=utf8", "root", "secret");
     $pdo -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    // TODO: Implementar la consulta
+    // implementacio de la consulta
     $stmt = $pdo -> prepare("SELECT * FROM usuari WHERE userusu=:username");
     
-    //Se li dona el valor a la variable $stmt
+    // se li dona el valor a la variable $stmt
     $stmt -> bindValue("username", $user);
     
     $stmt -> execute();
@@ -39,8 +39,6 @@ if ($_SERVER["REQUEST_METHOD"]==="POST") {
             $error = "Login error";
         }
     }
-
-    
 }
 // si no s'ha enviat ho indiquem
 else {
