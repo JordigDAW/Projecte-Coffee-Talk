@@ -38,9 +38,9 @@ var_dump($article);
     <h1>Welcome to Coffee Talk Blog</h1>
 
     <!--Comprovacio per veure que l'article existeix-->
-    <?php if (empty($article)) : ?>
+    <?php if (empty($article)) { ?>
         <p>No s'ha trobat l'article</p>
-    <?php else : ?>
+    <?php } else { ?>
 
         <h2><?= $article["titart"] ?></h2>
 
@@ -48,7 +48,7 @@ var_dump($article);
         <p><?= $article["bodyart"] ?></p>
         <p>Publicat per <strong><?= $article["codart"] ?></strong> en la categoria <strong><?= $article["codcat"] ?></strong> el <strong><?= $article["datart"] ?></strong></p>
         <p><a href='posts_edit.php'>Edit</a> || <a href='posts_delete.php'>Delete</a> || <a href='comments_add.php'>Add a comment</a></p>
-    <?php endif;  ?>
+    <?php } ?>
     <hr>
     <a href='index.php'>Home</a> || <a href='logout.php'>Logout</a>
 </body>
