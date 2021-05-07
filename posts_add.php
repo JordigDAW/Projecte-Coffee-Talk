@@ -10,9 +10,13 @@ if (empty($loggedUser))
     $isPost;
     $isValid;
 
+    print "<pre>";
+    print_r($_REQUEST);
+    print "</pre>\n";
+
     // TODO: 2. Comprovar el mètode de sol·licitud
     //Comprovacio de que s'ha solicitat el metode POST
-    if ($_SERVER["REQUEST_METHOD"]==="POST"){
+    /*if ($_SERVER["REQUEST_METHOD"]==="POST"){
         
         $isPost = true;
 
@@ -20,10 +24,19 @@ if (empty($loggedUser))
 
     } else {
         $isPost = false;
-    }
+    }*/
     
    // TODO: 2.2. Processar el formulari
+    /*$codart = filter_input(INPUT_POST, "Codart");
+    $titart = filter_input(INPUT_POST, "Titart");
+    $bodyart = filter_input(INPUT_POST, "Cos");
+    $autart = filter_input(INPUT_POST, "Autor");
+    $datart = filter_input(INPUT_POST, "Data");
+    $codcat = filter_input(INPUT_POST, "Codcat");
+    $codusu = filter_input(INPUT_POST, "Codusu");*/
+
     // TODO: 2.2. Obtenir les dades del formulari
+
     // TODO: 2.3. Validar les dades
     // TODO: 2.3. Comprovar si hi ha algún error de validació        
         // TODO: 2.3.2. Inserir en la base de dades
@@ -37,7 +50,7 @@ if (empty($loggedUser))
 <body>
 <h1>Welcome to Coffee Talk Blog</h1>
 
-<form action="formulari">
+<form action="posts_add.php" method="get">
     <p>Codi del article <input type="text" name="codart"></p>
     <p>Titol de l'article <input type="text" name="nomart"></p>
     <p>Cos de l'article <input type="text" name="bodyart"></p>
