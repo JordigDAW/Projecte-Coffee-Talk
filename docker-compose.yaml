@@ -10,7 +10,7 @@ services:
     ports:
       - "8080:80"
     environment:
-      XDEBUG_CONFIG: client_host=192.168.0.14
+      XDEBUG_CONFIG: client_host=172.17.0.1
 
   mysql-server:
     image: mysql:8.0.19
