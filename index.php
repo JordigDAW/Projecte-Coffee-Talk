@@ -28,9 +28,9 @@ $rows = $stmt->fetchAll();
     <?php else :?>
         <ul>            
             <!--Bucle foreach per mostrar els articles-->
-            <?php foreach ($rows as $row) : ?>
+            <?php foreach ($rows as $row) { ?>
                 <li><a href="posts_show.php?id=<?=$row["codart"]?>"><?=$row["titart"]?></a></li>
-            <?php endforeach; ?>
+            <?php } ?>
         </ul>
         <p>Clic to <a href="posts_add.php">add</a> a posting.</p>
     <?php endif; ?>
