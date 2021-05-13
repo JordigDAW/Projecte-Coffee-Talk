@@ -44,7 +44,7 @@ if (empty($loggedUser))
 
         //Implementacio de la consulta
         $stmt = $pdo -> prepare("INSERT INTO `article` (`titart`, `bodyart`, `codcat`, `codusu`, `datart`)
-        VALUES (:titart,:bodyart,:codcat,:codusu,:datart");
+        VALUES (:titart,:bodyart,:codcat,:codusu,:datart)");
     
         //Asignar valors als paràmetres
         $stmt -> bindValue("titart", $titart);
@@ -66,7 +66,7 @@ if (empty($loggedUser))
         $pdo -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
         //Implementacio de la consulta
-        $stmt = $pdo -> prepare("SELECT nomcat FROM categoria");
+        $stmt = $pdo -> prepare("SELECT nomcat FROM categoria ORDER BY nomcat ASC");
 
         $stmt -> execute();
 
@@ -94,7 +94,7 @@ if (empty($loggedUser))
     <textarea name="bodyart" style="resize:none" rows="10" cols="45" value="" placeholder="Insereix el cos de l'article"></textarea>
     <p>Codi de la categoria</p>
     <select name="codcat">
-        <option value="disabled selected">(select an option)</option>
+        <option disabled selected>(select an option)</option>
         <!--Bucle foreach per mostrar les categories en el camp select-->
         <?php foreach($categoria as $categories): ?>
         <option>
