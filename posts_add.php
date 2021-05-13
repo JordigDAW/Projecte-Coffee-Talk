@@ -55,10 +55,25 @@ if (empty($loggedUser))
 
         $stmt -> execute();
 
-
+        $stmt -> fetchAll();
         
         }
     
+    } else {
+        
+        //Connexio amb la base de dades
+        $pdo = new PDO("mysql:host=mysql-server;dbname=coffee-talks;charset=utf8", "root", "secret");
+        $pdo -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+        //Implementacio de la consulta
+        $stmt = $pdo -> prepare("SELECT nomcat FROM categoria");
+
+        $stmt -> execute();
+
+        $categoria = $stmt -> fetchall();
+
+        //var_dump($categoria);
+
     }
 
 ?>
@@ -79,14 +94,14 @@ if (empty($loggedUser))
     <textarea name="bodyart" style="resize:none" rows="10" cols="45" value="" placeholder="Insereix el cos de l'article"></textarea>
     <p>Codi de la categoria</p>
     <select name="codcat">
-    <!--
-        <option value="">(select an option)</option>
-        <?php foreach($categories as $categoria): ?>
+        <option value="disabled selected">(select an option)</option>
+        <!--Bucle foreach per mostrar les categories en el camp select-->
+        <?php foreach($categoria as $categories): ?>
         <option>
-            Opcio 1
+            <?= $categories["nomcat"]?>
         </option>
         <?php endforeach; ?>
-    </select> -->
+    </select>
     <p><input type="submit" value="Enviar"></p>
 </form>
 
