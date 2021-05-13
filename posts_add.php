@@ -66,7 +66,7 @@ if (empty($loggedUser))
         $pdo -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
         //Implementacio de la consulta
-        $stmt = $pdo -> prepare("SELECT nomcat FROM categoria ORDER BY nomcat ASC");
+        $stmt = $pdo -> prepare("SELECT * FROM categoria ORDER BY nomcat ASC");
 
         $stmt -> execute();
 
@@ -97,7 +97,7 @@ if (empty($loggedUser))
         <option disabled selected>(select an option)</option>
         <!--Bucle foreach per mostrar les categories en el camp select-->
         <?php foreach($categoria as $categories): ?>
-        <option>
+        <option value="<?= $categories["codcat"]?>">
             <?= $categories["nomcat"]?>
         </option>
         <?php endforeach; ?>
