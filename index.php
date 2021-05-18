@@ -8,7 +8,7 @@ $pdo = new PDO("mysql:host=mysql-server;dbname=coffee-talks;charset=utf8", "root
 $pdo -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 //Implementacio de la consulta
-$stmt = $pdo -> prepare("SELECT * FROM article");
+$stmt = $pdo -> prepare("SELECT * FROM article INNER JOIN categoria ON article.codcat=categoria.codcat INNER JOIN usuari ON article.codusu=usuari.codusu ORDER BY datart DESC");
 
 $stmt -> execute();
 $rows = $stmt->fetchAll();
@@ -29,7 +29,7 @@ $rows = $stmt->fetchAll();
         <ul>            
             <!--Bucle foreach per mostrar els articles-->
             <?php foreach ($rows as $row) { ?>
-                <li><a href="posts_show.php?id=<?=$row["codart"]?>"><?=$row["titart"]?></a></li>
+                <li><a href="posts_show.php?id=<?=$row["codart"]?>"><?=$row["titart"]?></a> creat per <strong><?=$row["nomusu"]?></strong> en la categoria <strong><?=$row["nomcat"]?></strong> el <strong><?=$row["datart"]?></strong></li>
             <?php } ?>
         </ul>
         <p>Clic to <a href="posts_add.php">add</a> a posting.</p>
