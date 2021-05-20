@@ -14,7 +14,7 @@ $pdo = new PDO("mysql:host=mysql-server;dbname=coffee-talks;charset=utf8", "root
 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 //Implementacio de la consulta amb la base de dades
-$stmt = $pdo->prepare("SELECT * FROM article WHERE codart=:codi");
+$stmt = $pdo->prepare("SELECT * FROM article INNER JOIN categoria on article.codcat = categoria.codcat INNER JOIN usuari on article.codusu = usuari.codusu WHERE codart = :id");
 
 $stmt->bindValue("codi", $id);
 
@@ -46,7 +46,7 @@ $article = $stmt->fetch();
 
         <!--Mostrar les dades del article que s'ha seleccionat-->
         <p><?= $article["bodyart"] ?></p>
-        <p>Publicat per <strong><?= $article["codusu"] ?></strong> en la categoria <strong><?= $article["codcat"] ?></strong> el <strong><?= $article["datart"] ?></strong></p>
+        <p>Publicat per <strong><?= $article["nomusu"] ?></strong> en la categoria <strong><?= $article["nomcat"] ?></strong> el <strong><?= $article["datart"] ?></strong></p>
         <p><a href='posts_edit.php'>Edit</a> || <a href='posts_delete.php'>Delete</a> || <a href='comments_add.php'>Add a comment</a></p>
     <?php } ?>
     <hr>
