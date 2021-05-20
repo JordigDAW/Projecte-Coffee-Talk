@@ -45,7 +45,7 @@ $article = $stmt->fetch();
 
         <!--Mostrar les dades del article que s'ha seleccionat-->
         <p><?= $article["bodyart"] ?></p>
-        <p>Publicat per <strong><?= $article["nomusu"] ?></strong> en la categoria <strong><?= $article["nomcat"] ?></strong> el <strong><?= $article["datart"] ?></strong></p>
+        <p>Publicat per <strong><?= $article["nomusu"] ?></strong> en la categoria <strong><a href=posts_by_category.php?categoria=<?= $article["nomcat"] ?> ></strong> el <strong><?= $article["datart"] ?></strong></p>
         <p><a href='posts_edit.php'>Edit</a> || <a href='posts_delete.php'>Delete</a> || <a href='comments_add.php'>Add a comment</a></p>
     <?php } ?>
     <hr>
