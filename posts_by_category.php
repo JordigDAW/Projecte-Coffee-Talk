@@ -31,7 +31,9 @@ $rows = $stmt->fetchAll();
         <ul>            
             <!--Bucle foreach per mostrar els articles-->
             <?php foreach ($rows as $row) { ?>
-                <li><a href="posts_show.php?id=<?=$row["codart"]?>"><?=$row["titart"]?></a> creat per <strong><?=$row["nomusu"]?></strong> en la categoria <strong><?=$row["nomcat"]?></strong> el <strong><?=$row["datart"]?></strong></li>
+                <li><a href="posts_show.php?id=<?=$row["codart"]?>"><?=$row["titart"]?></a>
+                creat per <strong><?=$row["nomusu"]?></strong> en la categoria <strong><?=$row["nomcat"]?></strong>
+                el <strong><?=$row["datart"]?></strong></li>
             <?php } ?>
         </ul>
         <p>Clic to <a href="posts_add.php">add</a> a posting.</p>
