@@ -15,12 +15,9 @@ $pdo = new PDO("mysql:host=mysql-server;dbname=coffee-talks;charset=utf8", "root
 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 //Implementacio de la consulta amb la base de dades
-<<<<<<< HEAD
 $stmt = $pdo->prepare("SELECT * FROM article INNER JOIN categoria on article.codcat = categoria.codcat INNER JOIN usuari on article.codusu = usuari.codusu WHERE codart = :id");
-=======
 $stmt = $pdo->prepare("SELECT * FROM article INNER JOIN categoria ON
  article.codcat=categoria.codcat INNER JOIN usuari ON article.codusu=usuari.codusu WHERE codart=:codi");
->>>>>>> 2bc8a54305a99084fb694a654d118cce662db563
 
 $stmt->bindValue("codi", $id);
 
@@ -50,12 +47,10 @@ $article = $stmt->fetch();
         <h2><?=$article["titart"]?></h2>
 
         <!--Mostrar les dades del article que s'ha seleccionat-->
-<<<<<<< HEAD
         <p><?= $article["bodyart"] ?></p>
         <p>Publicat per <strong><?= $article["nomusu"] ?></strong> en la categoria <strong><?= $article["nomcat"] ?></strong> el <strong><?= $article["datart"] ?></strong></p>
         <p><a href='posts_edit.php'>Edit</a> || <a href='posts_delete.php'>Delete</a> || <a href='comments_add.php'>Add a comment</a></p>
     <?php } ?>
-=======
         <p><?=$article["bodyart"]?></p>
         <p>Publicat per <strong><a href="posts_by_category.php?usuari=<?=$article["codusu"]?>">
         <?=$article["nomusu"]?><a/></strong> en la categoria <strong>
@@ -63,8 +58,7 @@ $article = $stmt->fetch();
         </a></strong> el <strong><?=$article["datart"]?></strong></p>
         <p><a href='posts_edit.php'>Edit</a> || <a href='posts_delete.php'>Delete</a>
          || <a href='comments_add.php'>Add a comment</a></p>
-    <?php }?>
->>>>>>> 2bc8a54305a99084fb694a654d118cce662db563
+    <?php ?>
     <hr>
     <a href='index.php'>Home</a> || <a href='logout.php'>Logout</a>
 </body>
