@@ -26,10 +26,14 @@ $rows = $stmt->fetchAll();
     <?php if (empty($loggedUser)) :?>
     <p>Please <a href="login.php">login</a>.</p>
     <?php else :?>
+        <h2>Posts creats amb la categoria</h2>
+        
         <ul>            
             <!--Bucle foreach per mostrar els articles-->
             <?php foreach ($rows as $row) { ?>
-                <li><a href="posts_show.php?id=<?=$row["codart"]?>"><?=$row["titart"]?></a> creat per <strong><?=$row["nomusu"]?></strong> en la categoria <strong><?=$row["nomcat"]?></strong> el <strong><?=$row["datart"]?></strong></li>
+                <li><a href="posts_show.php?id=<?=$row["codart"]?>"><?=$row["titart"]?></a>
+                creat per <strong><?=$row["nomusu"]?></strong> en la categoria <strong><?=$row["nomcat"]?></strong>
+                el <strong><?=$row["datart"]?></strong></li>
             <?php } ?>
         </ul>
         <p>Clic to <a href="posts_add.php">add</a> a posting.</p>

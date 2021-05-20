@@ -40,7 +40,10 @@ if (empty($loggedUser))
         $pdo -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
         $codusu = $_SESSION["user"];
-        $datart = date("Y-m-d");
+        
+        //Establiment de la zona horaria de madrid
+        date_default_timezone_set ("Europe/Madrid");
+        $datart = date("Y-m-d h:i:s");
 
         //Implementacio de la consulta
         $stmt = $pdo -> prepare("INSERT INTO `article` (`titart`, `bodyart`, `codcat`, `codusu`, `datart`)
