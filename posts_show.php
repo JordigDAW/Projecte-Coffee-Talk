@@ -10,14 +10,14 @@ if (empty($loggedUser)) {
 //Obtencio de l'id enviada pel query string
 $id = $_GET["id"];
 
-//Implementacio de la consulta
+//Implementació de la connexió a la base de dades
 $pdo = new PDO("mysql:host=mysql-server;dbname=coffee-talks;charset=utf8", "root", "secret");
 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 //Implementacio de la consulta amb la base de dades
-$stmt = $pdo->prepare("SELECT * FROM article INNER JOIN categoria on article.codcat = categoria.codcat INNER JOIN usuari on article.codusu = usuari.codusu WHERE codart = :id");
-$stmt = $pdo->prepare("SELECT * FROM article INNER JOIN categoria ON
- article.codcat=categoria.codcat INNER JOIN usuari ON article.codusu=usuari.codusu WHERE codart=:codi");
+
+$stmt = $pdo->prepare("SELECT * FROM article INNER JOIN categoria ON article.codcat=categoria.codcat
+                       INNER JOIN usuari ON article.codusu=usuari.codusu WHERE codart=:codi");
 
 $stmt->bindValue("codi", $id);
 
@@ -46,20 +46,19 @@ $article = $stmt->fetch();
 
         <h2><?=$article["titart"]?></h2>
 
-        <!--Mostrar les dades del article que s'ha seleccionat-->
-        <p><?= $article["bodyart"] ?></p>
-        <p>Publicat per <strong><?= $article["nomusu"] ?></strong> en la categoria <strong><?= $article["nomcat"] ?></strong> el <strong><?= $article["datart"] ?></strong></p>
-        <p><a href='posts_edit.php'>Edit</a> || <a href='posts_delete.php'>Delete</a> || <a href='comments_add.php'>Add a comment</a></p>
     <?php } ?>
+        <!--Informacio del contingut mostrat-->
         <p><?=$article["bodyart"]?></p>
-        <p>Publicat per <strong><a href="posts_by_category.php?usuari=<?=$article["codusu"]?>">
+        <p>Publicat per <strong><a href="posts_by_user.php?usuari=<?=$article["codusu"]?>">
         <?=$article["nomusu"]?><a/></strong> en la categoria <strong>
         <a href="posts_by_category.php?categoria=<?=$article["codcat"]?>"><?=$article["nomcat"]?>
         </a></strong> el <strong><?=$article["datart"]?></strong></p>
         <p><a href='posts_edit.php'>Edit</a> || <a href='posts_delete.php'>Delete</a>
          || <a href='comments_add.php'>Add a comment</a></p>
     <?php ?>
+    
     <hr>
+
     <a href='index.php'>Home</a> || <a href='logout.php'>Logout</a>
 </body>
 
