@@ -44,6 +44,8 @@ $rows = $stmt->fetchAll();
                 el <strong><?=$row["datart"]?></strong></li>
             <?php } ?>
         </ul>
+
+        <!--Botons de la part de baix de la pàgina-->
         <p>Clic to <a href="posts_add.php">add</a> a posting.</p>
         <a href='index.php'>Home</a> || <a href='logout.php'>Logout</a>
     <?php endif; ?>
