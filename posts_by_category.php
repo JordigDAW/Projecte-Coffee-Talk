@@ -20,7 +20,7 @@ $stmt -> execute();
 
 $rows = $stmt->fetchAll();
 
-var_dump($rows);
+//var_dump($rows);
 
 ?>
 
@@ -33,7 +33,7 @@ var_dump($rows);
     <?php if (empty($loggedUser)) :?>
     <p>Please <a href="login.php">login</a>.</p>
     <?php else :?>
-        <h2>Posts creats amb la categoria</h2>
+        <h2>Posts creats amb la categoria <?=$rows[0]["nomcat"]?></h2>
         
         <ul>            
             <!--Bucle foreach per mostrar els articles-->

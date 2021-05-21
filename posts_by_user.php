@@ -33,7 +33,7 @@ $rows = $stmt->fetchAll();
     <?php if (empty($loggedUser)) :?>
     <p>Please <a href="login.php">login</a>.</p>
     <?php else :?>
-        <h2>Posts creats per l'usuari *inserte usuario correspondiente</h2>
+        <h2>Posts creats per l'usuari <?=$rows[0]["nomusu"]?></h2>
         
         <ul>            
             <!--Bucle foreach per mostrar els articles-->
