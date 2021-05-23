@@ -10,6 +10,7 @@ if (empty($loggedUser))
     $isPost = false;
     $isValid = false;
 
+    //Comprovació del metode de proposta rebut per el servidor
     if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         $isPost = true;
@@ -20,7 +21,7 @@ if (empty($loggedUser))
 
         $isValid = true;
 
-        //Comprovacio de que cap dels camps esta buits
+        //Comprovacio de que cap dels camps esta buit
         if (empty($titart)) {
             $isValid = false;
         }
@@ -56,8 +57,10 @@ if (empty($loggedUser))
         $stmt -> bindValue("codusu", $codusu);
         $stmt -> bindValue("datart", $datart);
 
+        //Execució de la consulta
         $stmt -> execute();
 
+        //fetchAll servix per mostrar els valors del array d'arrays
         $stmt -> fetchAll();
         
         }

@@ -33,7 +33,7 @@ $rows = $stmt->fetchAll();
     <?php if (empty($loggedUser)) :?>
     <p>Please <a href="login.php">login</a>.</p>
     <?php else :?>
-        <h2>Posts creats per l'usuari *inserte usuario correspondiente</h2>
+        <h2>Posts creats per l'usuari <?=$rows[0]["nomusu"]?></h2>
         
         <ul>            
             <!--Bucle foreach per mostrar els articles-->
@@ -44,6 +44,8 @@ $rows = $stmt->fetchAll();
                 el <strong><?=$row["datart"]?></strong></li>
             <?php } ?>
         </ul>
+
+        <!--Botons de la part de baix de la pàgina-->
         <p>Clic to <a href="posts_add.php">add</a> a posting.</p>
         <a href='index.php'>Home</a> || <a href='logout.php'>Logout</a>
     <?php endif; ?>
