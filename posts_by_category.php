@@ -3,6 +3,9 @@
 session_start();
 $loggedUser = $_SESSION["user"] ?? "";
 
+if (empty($loggedUser))
+    header("Location: login.php");
+
 //Obtencio de la categoria triada
 $categoria = $_GET["categoria"];
 
