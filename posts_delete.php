@@ -24,7 +24,6 @@ if (empty($loggedUser))
 ?>
 
 <html>
-
 <head>
     <title>Coffee Talk Blog</title>
 </head>
@@ -32,7 +31,4 @@ if (empty($loggedUser))
 <body>
     Post eliminat amb exit
 </body>
-
-
-
 </html>
