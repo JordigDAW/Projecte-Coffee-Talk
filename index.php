@@ -36,7 +36,7 @@ $rows = $stmt->fetchAll();
                 el <strong><?=$row["datart"]?></strong></li>
             <?php } ?>
         </ul>
-        <p>Clic to <a href="posts_add.php">add</a> a posting.</p>
+        <p>Clic to <a href="posts_add.php">add</a> a posting | | <a href="logout.php">Desconectar</a></p>
     <?php endif; ?>
 </body>
 </html>

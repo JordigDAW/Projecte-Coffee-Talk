@@ -68,7 +68,7 @@ else {
     </div>
     <div>
         <label>Password:</label>
-        <input type="text" name="password" value=""/>
+        <input type="password" name="password" value=""/>
     </div>
     <input type="submit" value="login">
 </form>

@@ -1,25 +1,16 @@
 <?php
-//Activem la gestió de sessions
-session_start();
-$loggedUser = $_SESSION["user"] ?? "";
+    //Activem la gestió de sessions
+    session_start();
+    $loggedUser = $_SESSION["user"] ?? "";
 
-//Obtencio de la categoria triada
-$id = $_GET["id"];
+    //Obtencio de la categoria triada
+    $id = $_GET["id"];
 
-//En cas de no haver iniciat sessió se l'envia a la pàgina de login
-if (empty($loggedUser))
-    header("Location: login.php");
-
-    //Establiment de la connexió amb la base de dades
-    $pdo = new PDO ("mysql:host=mysql-server;dbname=coffee-talks;charset=utf8", "root", "secret");
+    //Connexió amb la base de dades
+    $pdo = new PDO("mysql:host=mysql-server;dbname=coffee-talks;charset=utf8", "root", "secret");
     $pdo -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    //Implementació de la consulta
-    $stmt = $pdo -> prepare("DELETE FROM article WHERE codart=:codi");
-
-    $stmt -> bindValue("codi", $id);
-
-    $stmt -> execute();
+    
 
 ?>
 
