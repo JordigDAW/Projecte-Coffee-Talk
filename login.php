@@ -56,7 +56,7 @@ else {
 
 <?php if ($isFormSubmitted) : ?>
     <?php if (empty($error)) :?>
-        <p>Login successful. Great to see you back <?=$fullname?></p>
+        <p>Login successful. Great to see you back <?=$row["nomusu"]?><?=$fullname?></p>
     <?php else :?>
         <p>Error:  <?=$error ?>. <a href="login.php">Try again</a></p>
     <?php endif; ?>
