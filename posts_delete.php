@@ -4,7 +4,7 @@ session_start();
 $loggedUser = $_SESSION["user"] ?? "";
 
 //Obtencio de la categoria triada
-$article = $_GET["codart"];
+$id = $_GET["id"];
 
 //En cas de no haver iniciat sessió se l'envia a la pàgina de login
 if (empty($loggedUser))
@@ -15,9 +15,9 @@ if (empty($loggedUser))
     $pdo -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     //Implementació de la consulta
-    $stmt = $pdo -> prepare("DELETE FROM article WHERE article=:codart");
+    $stmt = $pdo -> prepare("DELETE FROM article WHERE codart=:codi");
 
-    $stmt -> bindValue("codart", $article);
+    $stmt -> bindValue("codi", $id);
 
     $stmt -> execute();
 
