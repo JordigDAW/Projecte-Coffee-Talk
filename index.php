@@ -11,7 +11,9 @@ $pdo -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 $stmt = $pdo -> prepare("SELECT * FROM article INNER JOIN categoria ON article.codcat=categoria.codcat
                          INNER JOIN usuari ON article.codusu=usuari.codusu ORDER BY datart DESC");
 
+//Execucio de la consulta
 $stmt -> execute();
+
 $rows = $stmt->fetchAll();
 
 //var_dump($rows);
