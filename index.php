@@ -14,7 +14,7 @@ $stmt = $pdo -> prepare("SELECT * FROM article INNER JOIN categoria ON article.c
 //Execucio de la consulta
 $stmt -> execute();
 
-$rows = $stmt->fetchAll();
+$rows = $stmt -> fetchAll();
 
 //var_dump($rows);
 
